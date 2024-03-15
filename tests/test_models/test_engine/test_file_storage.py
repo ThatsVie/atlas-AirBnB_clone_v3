@@ -128,7 +128,7 @@ class TestFileStorage(unittest.TestCase):
     @unittest.skipIf(models.storage_t == 'db', "not testing db storage")
     def test_count(self):
         """
-        Test that count increments after adding an object
+        Test that count increments after adding an object.
         """
         city_count = models.storage.count(City)
         city_objects = City()
