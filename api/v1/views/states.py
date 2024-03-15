@@ -65,12 +65,14 @@ def create_new_state():
         If the request does not contain JSON data or is missing the 'name' attribute,
         returns a 400 error.
     """
-    if not request.json:
+    data = request.get_json()
+    if not data:
         abort(400, "Not a JSON")
-    if "name" not in request.json:
+    if "name" not in data:
         abort(400, "Missing name")
-    new_state = State(**request.json)
-    new_state.save()
+    new_state = State(**data)
+    storage.new(new_state)
+    storage.save()
     return jsonify(new_state.to_dict()), 201
 
 @app_views.route("/states/<state_id>", methods=["PUT"], strict_slashes=False)
@@ -89,9 +91,10 @@ def update_state(state_id):
     state = storage.get(State, state_id)
     if not state:
         abort(404)
-    if not request.json:
+    data = request.get_json()
+    if not data:
         abort(400, "Not a JSON")
-    for key, value in request.json.items():
+    for key, value in data.items():
         if key not in ["id", "created_at", "updated_at"]:
             setattr(state, key, value)
     storage.save()
