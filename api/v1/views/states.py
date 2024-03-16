@@ -61,8 +61,8 @@ def create_new_state():
     Creates a new State object.
 
     Returns:
-        JSON representation of the newly created State object with status code 201.
-        If the request does not contain JSON data or is missing the 'name' attribute,
+        JSON representation of newly created State object with status code 201.
+        If request does not contain JSON data or is missing 'name' attribute,
         returns a 400 error.
     """
     data = request.get_json()
@@ -85,8 +85,8 @@ def update_state(state_id):
 
     Returns:
         JSON representation of the updated State object with status code 200.
-        If no State with the given ID is found or the request does not contain JSON data,
-        returns a 404 or 400 error, respectively.
+        If no State with the given ID is found or the request does not contain
+        JSON data, returns a 404 or 400 error, respectively.
     """
     state = storage.get(State, state_id)
     if not state:
