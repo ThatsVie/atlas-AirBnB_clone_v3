@@ -206,45 +206,19 @@ EOF  all  create  destroy  help  quit  show  update
 <li>Second part of Airbnb: Joann Vuong</li>
 </details>
 
+To view a README file for the Atlas AirBnB Clone Console project, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone/blob/main/README.md).
+
 ## Web Static
 
 The `web_static` folder serves as a repository for static assets such as HTML, CSS, and images. It organizes the front-end resources used to create and style the web pages in the project. These assets are served to users directly by the web server without any processing, enhancing the performance and scalability of the web application.
 
-### HTML Files
-
-- **0-index.html**: Basic HTML template with a red header and green footer.
-- **1-index.html**: Updated HTML template with styles moved to an embedded CSS block.
-- **2-index.html**: HTML template with links to external CSS files.
-- **3-index.html**: Enhanced HTML template with additional CSS files and an icon link.
-- **4-index.html**: HTML template with filters section added for search functionality.
-- **5-index.html**: HTML template with extended filters section for location and amenities.
-- **6-index.html**: HTML template with further improvements to the filters section and styles.
-- **7-index.html**: Final HTML template with locations, amenities, and places sections added.
-- **8-index.html**: Latest HTML template with detailed place listings and pricing.
-
-### CSS Files
-
-- **2-common.css**: Common styles for HTML files 0-2.
-- **2-header.css**: Header styles for HTML files 0-2.
-- **2-footer.css**: Footer styles for HTML files 0-2.
-- **3-common.css**: Common styles for HTML files 3-7.
-- **3-header.css**: Header styles for HTML files 3-7.
-- **3-footer.css**: Footer styles for HTML files 3-7.
-- **4-common.css**: Common styles for HTML files 4-8.
-- **4-filters.css**: Filters section styles for HTML files 4-8.
-- **5-filters.css**: Extended filters section styles for HTML files 5-8.
-- **6-filters.css**: Further improved filters section styles for HTML files 6-8.
-- **7-places.css**: Styles for places section in HTML file 7.
-- **8-places.css**: Styles for places section in HTML file 8.
-### Usage
-
-1. Clone the repository to your local machine.
-2. Navigate to the `web_static` directory.
-3. Open the HTML files in a web browser to view the static pages.
-4. Modify the HTML and CSS files as needed to customize the appearance of the web pages.
-5. Serve the static files using a web server like Nginx or Apache in a production environment.
+To view a README file for the Atlas AirBnb Clone `web_static` folder, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone/blob/main/web_static/README.md).
 
 ## Web Flask/ Web Framewok
+
+This project implements a web framework for an AirBnB clone using Flask, a lightweight WSGI web application framework. It includes various tasks that demonstrate the functionality of the web application, such as displaying different routes, rendering HTML templates, and interacting with a database.
+
+To view the README file for the Atlas AirBnb Clone `web_flask` folder, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone_v2/blob/master/web_flask/README.md).
 
 ## API
 
