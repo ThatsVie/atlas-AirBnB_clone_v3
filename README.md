@@ -225,26 +225,36 @@ To view a README file for the Atlas AirBnb Clone `web_flask` folder, please visi
 This repository was originally forked from this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2) It was built upon to provide endpoints to interact with various resources such as states, cities, users, places, reviews, and amenities.
 
 ### Storage Enhancement: DBStorage and FileStorage
+
 The DBStorage and FileStorage modules have been updated in the storage_get_count branch to include two new methods:
 
-get(cls, id): Retrieves an object based on the class and its ID, or returns None if not found.
+**get(cls, id):** Retrieves an object based on the class and its ID, or returns None if not found.
 
-count(cls=None): Returns the number of objects in storage matching the given class. If no class is passed, returns the count of all objects in storage.
+**count(cls=None):** Returns the number of objects in storage matching the given class. If no class is passed, returns the count of all objects in storage.
 
 New tests have been added to ensure the functionality of these methods.
 
 ### Endpoints
 
-/states: Retrieves a list of all state objects.
-/states/<state_id>: Retrieves a specific state object by ID.
-/cities/<city_id>/places: Retrieves a list of all places in a city.
-/places/<place_id>: Retrieves a specific place object by ID.
-/places/<place_id>/reviews: Retrieves a list of all reviews for a place.
-/reviews/<review_id>: Retrieves a specific review object by ID.
-/amenities: Retrieves a list of all amenity objects.
-/amenities/<amenity_id>: Retrieves a specific amenity object by ID.
-/users: Retrieves a list of all user objects.
-/users/<user_id>: Retrieves a specific user object by ID.
+**/states:** Retrieves a list of all state objects.
+
+**/states/<state_id>:** Retrieves a specific state object by ID.
+
+**/cities/<city_id>/places:** Retrieves a list of all places in a city.
+
+**/places/<place_id>:** Retrieves a specific place object by ID.
+
+**/places/<place_id>/reviews:** Retrieves a list of all reviews for a place.
+
+**/reviews/<review_id>:** Retrieves a specific review object by ID.
+
+**/amenities:** Retrieves a list of all amenity objects.
+
+**/amenities/<amenity_id>:** Retrieves a specific amenity object by ID.
+
+**/users:** Retrieves a list of all user objects.
+
+**/users/<user_id>:** Retrieves a specific user object by ID.
 
 For each resource, the API supports GET, POST, PUT, and DELETE methods to perform CRUD operations.
 
@@ -253,12 +263,15 @@ The API is configured to allow cross-origin requests from any origin (0.0.0.0) u
 
 ### Installation
 
-### Clone the repository:
+**Clone the repository:**
 ```bash
 git clone https://github.com/ThatsVie/atlas-AirBnB_clone_v3.git
+```
+**Navigate to the project directort**
+```bash
 cd atlas-AirBnB_clone_v3
 ```
-### Install the flask_cors module:
+**Install the flask_cors module:**
 ```bash
 pip3 install flask_cors
 ```
