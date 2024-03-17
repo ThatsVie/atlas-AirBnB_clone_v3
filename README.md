@@ -220,9 +220,60 @@ This project implements a web framework for an AirBnB clone using Flask, a light
 
 To view a README file for the Atlas AirBnb Clone `web_flask` folder, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone_v2/blob/master/web_flask/README.md).
 
-## API
+## AirBnB Clone v3 API
+
+This repository was originally forked from this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2) It was built upon to provide endpoints to interact with various resources such as states, cities, users, places, reviews, and amenities.
+
+### Storage Enhancement: DBStorage and FileStorage
+The DBStorage and FileStorage modules have been updated in the storage_get_count branch to include two new methods:
+
+get(cls, id): Retrieves an object based on the class and its ID, or returns None if not found.
+
+count(cls=None): Returns the number of objects in storage matching the given class. If no class is passed, returns the count of all objects in storage.
+
+New tests have been added to ensure the functionality of these methods.
+
+### Endpoints
+
+/states: Retrieves a list of all state objects.
+/states/<state_id>: Retrieves a specific state object by ID.
+/cities/<city_id>/places: Retrieves a list of all places in a city.
+/places/<place_id>: Retrieves a specific place object by ID.
+/places/<place_id>/reviews: Retrieves a list of all reviews for a place.
+/reviews/<review_id>: Retrieves a specific review object by ID.
+/amenities: Retrieves a list of all amenity objects.
+/amenities/<amenity_id>: Retrieves a specific amenity object by ID.
+/users: Retrieves a list of all user objects.
+/users/<user_id>: Retrieves a specific user object by ID.
+
+For each resource, the API supports GET, POST, PUT, and DELETE methods to perform CRUD operations.
+
+### Cross-Origin Resource Sharing (CORS)
+The API is configured to allow cross-origin requests from any origin (0.0.0.0) using the flask_cors module. This setup ensures that web clients can access the API data without encountering CORS-related issues.
+
+### Installation
+
+### Clone the repository:
+```bash
+git clone https://github.com/ThatsVie/atlas-AirBnB_clone_v3.git
+cd atlas-AirBnB_clone_v3
+```
+### Install the flask_cors module:
+```bash
+pip3 install flask_cors
+```
+
+### Usage
+Running the API Locally
+To run the API locally, execute the following command:
+```bash
+(working on this)
+```
+The API will be available at http://0.0.0.0:5000/
+
+
 
 ## Authors:
 Vie Paula - [Github](https://github.com/ThatsVie)
 
-Ryan Donaldson -[Github](https://github.com/donaldrs01)
+Ryan Donaldson - [Github](https://github.com/donaldrs01)
