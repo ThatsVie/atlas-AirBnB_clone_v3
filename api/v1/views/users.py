@@ -68,7 +68,7 @@ def create_new_user():
 
 
 @app_views.route('/users/<user_id>', methods=['PUT'],
-                 strict_slashes = False)
+                 strict_slashes=False)
 def update_user(user_id):
     """
     Updates a specific User object by its ID
@@ -85,4 +85,3 @@ def update_user(user_id):
             setattr(user, key, value)
     storage.save()
     return jsonify(user.to_dict()), 200
-
