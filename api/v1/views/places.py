@@ -29,7 +29,7 @@ def get_places_by_id(place_id):
     """
     Retrieves a Place object based off of its place ID
     """
-    place = place.get(Place, place_id)
+    place = storage.get(Place, place_id)
     if place:
         return jsonify(place.to_dict())
     abort(404)
