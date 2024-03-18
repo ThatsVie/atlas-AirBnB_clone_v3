@@ -332,6 +332,119 @@ This command sends a GET request to the URL http://0.0.0.0:5000/api/v1/status wi
 
 ![Screenshot 2024-03-18 161236](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7b3b8c22-476d-440e-a178-22fb2a432692)
 
+#### Getting Stats
+**Note: For this to work the API needs to be running from the previous instance.**
+
+In your terminal input this command:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/stats
+```
+This command sends a GET request to the specified URL http://0.0.0.0:5000/api/v1/stats. It is querying an API endpoint to retrieve statistics about the number of each type of object. The response will contain a JSON object with the counts of various object types such as amenities, cities, places, reviews, states, and users.
+
+![Screenshot 2024-03-18 164441](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/92765fc0-f35a-4d4d-8f00-593b96591e94)
+
+
+Now, in your browser:
+```bash
+http://localhost:5000/api/v1/stats
+```
+![Screenshot 2024-03-18 164607](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/3b0cc174-5da5-4c4f-9698-5fe0acdb98e8)
+
+###  404 errors in a Flask API
+**Note: Ensure the API is running from the previous instances**
+
+This task ensures that when clients access invalid endpoints in the API, they receive a clear and standardized JSON response indicating that the requested resource was not found.
+
+In your terminal input this command
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/nop
+```
+
+This command sends a GET request to http://0.0.0.0:5000/api/v1/nop, attempting to retrieve data from the specified URL.
+![Screenshot 2024-03-18 170823](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/871248f0-ddf9-43ee-8fa7-7ca59ba7031a)
+
+Then, input this command
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/nop -vvv
+```
+This command sends a verbose GET request to http://0.0.0.0:5000/api/v1/nop, providing detailed output about the request and response communication.
+
+![Screenshot 2024-03-18 170844](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c200ec65-5028-4353-a23c-7b42f84e3279)
+
+Now, in your browser:
+```bash
+http://localhost:5000/api/v1/nop
+```
+![Screenshot 2024-03-18 170706](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/79c60134-4dd9-42dd-878a-3a15a49012d5)
+
+#### View State Objects
+**Ensure the API server is still running**
+Input this command in your terminal
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/states/
+```
+
+This command retrieves a list of all State objects from the API.
+
+![Screenshot 2024-03-18 171651](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7b028171-a828-481a-98dd-da5cb339b237)
+
+
+Now in your browser:
+```bash
+http://localhost:5000/api/v1/states/
+```
+
+![Screenshot 2024-03-18 171812](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/46275bea-8ada-42e8-a47e-8a06f4fccfd2)
+
+
+Next, in the terminal input this command:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
+```
+
+This command retrieves a specific State object with the ID "bbee73a7-2f71-47e6-938a-2d9e932d4ff9" from the API.
+
+![Screenshot 2024-03-18 172110](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/943d4a6f-ae5d-4cde-ad56-ce721c49b460)
+
+In your browser:
+```
+http://localhost:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
+```
+
+![Screenshot 2024-03-18 172323](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/fa91b52a-4d04-4765-a376-b9b035d637e2)
+
+Next, in your terminal input this command
+
+```bash
+curl -X POST http://0.0.0.0:5000/api/v1/states/ -H "Content-Type: application/json" -d '{"name": "California"}' -vvv
+```
+This command sends a POST request to create a new State object with the name "California" to the specified API endpoint. The request body is in JSON format, containing the name of the State. The -vvv flag is for verbose output, providing detailed information about the request and response.
+
+![Screenshot 2024-03-18 172632](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/407f72c4-ac27-4dbc-9642-ee709521d547)
+
+Next, in your terminal input this command
+```
+curl -X PUT http://0.0.0.0:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9 -H "Content-Type: application/json" -d '{"name": "Mississippi is so cool"}'
+```
+This command is sending a PUT request to the endpoint http://0.0.0.0:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9 with the data {"name": "Mississippi is so cool"} in JSON format and specifying the header Content-Type: application/json. It's intended to update the name of the State object with the specified ID (bbee73a7-2f71-47e6-938a-2d9e932d4ff9) to "Mississippi is so cool".
+
+![Screenshot 2024-03-18 173318](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c71682f4-0bc5-4b61-be06-7238e6c6c240)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
+```
+
+![Screenshot 2024-03-18 173453](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/e51ff67a-b131-478c-9270-df9a8ef4c4a2)
+
+Mississippi is so cool now!
+
+Next, in your terminal input this command:
+```bash
+(upto DELETE)
+```
+
+
 
 
 
