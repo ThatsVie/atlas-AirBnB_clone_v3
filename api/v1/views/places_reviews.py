@@ -59,7 +59,7 @@ def create_new_review(place_id):
     if place is None:
         abort(404)
 
-    data = request.get_json()
+    data = request.get_json(silent=True)
     if data is None:
         abort(400, 'Not a JSON')
 
@@ -93,7 +93,7 @@ def update_review(review_id):
     if review is None:
         abort(404)
 
-    data = request.get_json()
+    data = request.get_json(silent=True)
     if not data:
         abort(400, 'Not a JSON')
 
