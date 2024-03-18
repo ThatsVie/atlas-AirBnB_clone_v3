@@ -35,7 +35,7 @@ def get_review_by_id(review_id):
     return jsonify(review.to_dict())
 
 
-@app_views.route('/reviews/<review_id', methods=['DELETE'],
+@app_views.route('/reviews/<review_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_review_by_id(review_id):
     """
@@ -56,7 +56,7 @@ def create_new_review(place_id):
     Creates new Review object associated with a given Place
     """
     place = storage.get(Place, place_id)
-    if Place is None:
+    if place is None:
         abort(404)
 
     data = request.get_json()
