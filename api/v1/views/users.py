@@ -50,7 +50,7 @@ def create_new_user():
     """
     Creates a new User object
     """
-    data = request.get_json()
+    data = request.get_json(silent=True)
     if not data:
         abort(400, 'Not a JSON')
     if 'email' not in data:
@@ -76,7 +76,7 @@ def update_user(user_id):
     user = storage.get(User, user_id)
     if user is None:
         abort(404)
-    data = request.get_json()
+    data = request.get_json(silent=True)
     if not data:
         abort(400, 'Not a JSON')
     #  Remove keys that are ignored

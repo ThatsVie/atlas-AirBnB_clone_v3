@@ -55,7 +55,7 @@ def create_new_city(state_id):
     """
     Creates a new City object
     """
-    city_data = request.get_json()
+    city_data = request.get_json(silent=True)
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
@@ -75,7 +75,7 @@ def update_city(city_id):
     """
     Updates a specific City object by its ID
     """
-    city_data = request.get_json()
+    city_data = request.get_json(silent=True)
     city = storage.get(City, city_id)
     if city is None:
         abort(404)
