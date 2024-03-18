@@ -9,6 +9,7 @@ from models.place import Place
 from models.user import User
 from api.v1.views import app_views
 
+
 @app_views.route('/places/<place_id>/reviews', methods=['GET'],
                  strict_slashes=False)
 def get_reviews_by_place(place_id):
@@ -18,7 +19,6 @@ def get_reviews_by_place(place_id):
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
-    
     reviews = [reviews.to_dict() for review in place.reviews]
     return jsonify(reviews)
 
@@ -58,11 +58,11 @@ def create_new_review(place_id):
     place = storage.get(Place, place_id)
     if Place is None:
         abort(404)
-    
+
     data = request.get_json()
     if data is None:
         abort(400, 'Not a JSON')
-    
+
     required_attributes = ['user_id', 'text']
     for attribute in required_attributes:
         if attribute not in data:
@@ -73,7 +73,7 @@ def create_new_review(place_id):
     user = storage.get(User, user_id)
     if user is None:
         abort(404)
-    
+
     new_review = Review(**data)
     #  Assign place_id extracted from URL
     new_review.place_id = place_id
@@ -92,16 +92,16 @@ def update_review(review_id):
     review = storage.get(Review, review_id)
     if review is None:
         abort(404)
-    
+
     data = request.get_json()
     if not data:
         abort(400, 'Not a JSON')
-    
+
     for key, value in data.items():
-        if key not in ['id', 'user_id', 'place_id', 'created_at', 'updated_at']:
+        if key not in ['id', 'user_id', 'place_id',
+                       'created_at', 'updated_at']:
             setattr(review, key, value)
-    
+
     storage.save()
 
     return jsonify(review.to_dict()), 200
-    
