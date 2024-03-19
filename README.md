@@ -515,6 +515,7 @@ Currently, although the DELETE function for State exists, it cannot be used due 
   <li>
 
 **Ensure the API server is still running**
+
 Input this command in your terminal
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/states/not_an_id/cities/
@@ -630,6 +631,111 @@ http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 🌻🌻🌻Amenities CRUD  </summary>
 <ul>
   <li>
+
+**Ensure the API server is still running**
+
+Input this command in your terminal
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/amenities/
+```
+The command curl -X **GET** http://0.0.0.0:5000/api/v1/amenities/ fetches a list of all amenities from the specified API endpoint.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/36928225-9cad-4670-81ce-8d170125235c)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/amenities/
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/b7706689-a244-4d25-831a-707e7d77443d)
+
+Next, input this command in your terminal:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/amenities/017ec502-e84a-4a0f-92d6-d97e27bb6bdf
+```
+
+The command curl -X **GET** http://0.0.0.0:5000/api/v1/amenities/017ec502-e84a-4a0f-92d6-d97e27bb6bdf sends a GET request to the specified API endpoint, aiming to retrieve information about the amenity with the ID 017ec502-e84a-4a0f-92d6-d97e27bb6bdf.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/3eb73fa9-a8a0-4f17-97b1-f67d337df377)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/amenities/017ec502-e84a-4a0f-92d6-d97e27bb6bdf
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/74768849-0279-4220-94db-8254e74289d4)
+
+Next, input this command in your terminal:
+
+```bash
+curl -X POST http://0.0.0.0:5000/api/v1/amenities/ -H "Content-Type: application/json" -d '{"name": "Pugs"}' -vvv
+```
+
+This command is making a **POST** request to the endpoint http://0.0.0.0:5000/api/v1/amenities/ with the header Content-Type: application/json and the data {"name": "Pugs"} in JSON format. The -vvv flag is for verbose output, providing detailed information about the request and response. It is intended to create a new amenity with the name "Pugs" in the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/9ed081ac-aa46-4170-a1b3-c5f626974e04)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/ff09942a-f74d-4d4a-8b92-3e7b984603ca)
+
+Next, input this command in your terminal:
+```bash
+ curl -X PUT http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a -H "Content-Type: application/json" -d '{"name": "Pugs are Love"}'
+```
+
+This command is sending a PUT request to the endpoint http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a with the header Content-Type: application/json and the data {"name": "Pugs are Love"} in JSON format. It's intended to update the amenity with the ID a4efd896-0685-47d3-ab8b-daa06195951a to have the name "Pugs are Love" in the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/8efb23bb-fecf-4aea-9663-475e17ebd0d8)
+
+Next, input this command in your terminal:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
+```
+
+
+This command is sending a **GET** request to the endpoint http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a. It is requesting information about the amenity with the ID a4efd896-0685-47d3-ab8b-daa06195951a from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c1334449-52ab-40c8-bf37-24450e03b41f)
+
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/ba423bef-0d91-437f-9a03-90ff990f0967)
+
+
+Next, input this command in your terminal:
+```bash
+curl -X DELETE http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
+```
+
+This command is sending a **DELETE** request to the endpoint http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a. It is requesting the deletion of the amenity with the ID a4efd896-0685-47d3-ab8b-daa06195951a from the API.
+
+
+Next, input this command in your terminal:
+
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
+```
+
+This command is being used to verify the deletion of an amenity. It sends a GET request to the endpoint http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a to check whether the amenity with the ID a4efd896-0685-47d3-ab8b-daa06195951a has been successfully deleted from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/60008fe7-6617-4f14-b133-74e948401201)
+
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
+```
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/49498c76-ca8f-4ac9-9efb-3357f0f03cc6)
+
+
 
 
 </ul> </li> </details>
