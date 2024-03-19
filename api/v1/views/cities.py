@@ -12,6 +12,7 @@ from api.v1.views import app_views
 
 @app_views.route('/states/<state_id>/cities', methods=['GET'],
                  strict_slashes=False)
+#  state_id relates to state for which associated cities are retrieved
 def get_cities_by_state(state_id):
     """
     Retrieves the list of all City objects associated with a State
@@ -19,7 +20,9 @@ def get_cities_by_state(state_id):
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
+    #  If state is found, retrieves associated cities
     cities = state.cities
+    #  Converts each city obj into JSON format (dict representation)
     cities_list = [city.to_dict() for city in cities]
     return jsonify(cities_list)
 
@@ -46,6 +49,7 @@ def delete_city_by_id(city_id):
         abort(404)
     storage.delete(city)
     storage.save()
+    #  Converts empty dict into JSON response, returns 'OK' status code
     return jsonify({}), 200
 
 
@@ -55,6 +59,7 @@ def create_new_city(state_id):
     """
     Creates a new City object
     """
+    #  Retrieves JSON data from HTTP request
     city_data = request.get_json(silent=True)
     state = storage.get(State, state_id)
     if state is None:
@@ -64,6 +69,7 @@ def create_new_city(state_id):
     if 'name' not in city_data:
         abort(400, 'Missing name')
 
+    #  sets value of state_id attribute to specific state_id value
     city_data['state_id'] = state_id
     new_city = City(**city_data)
     new_city.save()
