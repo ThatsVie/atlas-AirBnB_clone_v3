@@ -29,6 +29,7 @@ def get_amenity_by_id(amenity_id):
     amenity = storage.get(Amenity, amenity_id)
     if amenity:
         return jsonify(amenity.to_dict())
+    #  if amenity not found based on ID, abort with 404 error
     abort(404)
 
 
@@ -42,6 +43,7 @@ def delete_amenity_by_id(amenity_id):
     if amenity:
         storage.delete(amenity)
         storage.save()
+        #  Converts empty dict into JSON response
         return jsonify({})
     abort(404)
 
@@ -51,11 +53,15 @@ def create_new_amenity():
     """
     Creates a new Amenity object
     """
+    #  When server receives requset, it will execute function
+    #  and create new Amenity object based on extracted data
     data = request.get_json(silent=True)
     if not data:
         abort(400, 'Not a JSON')
     if 'name' not in data:
         abort(400, 'Missing name')
+    #  Create new instance of 'Amenity'
+    #  Sets attributes based on key-value pairs in data dict
     amenity = Amenity(**data)
     storage.new(amenity)
     storage.save()
