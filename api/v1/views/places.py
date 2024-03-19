@@ -74,6 +74,7 @@ def create_new_place(city_id):
             abort(400, f'Missing {attribute}')
 
     user_id = data['user_id']
+    #  After retrieiving user_id, retrieves the associated User object
     user = storage.get(User, user_id)
     if user is None:
         abort(404)
