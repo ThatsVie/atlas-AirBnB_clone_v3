@@ -227,7 +227,7 @@ To view a README file for the Atlas AirBnb Clone `web_flask` folder, please visi
 💻
 ## AirBnB Clone v3 API
 
-This repository was originally forked from this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2) It was built upon to provide endpoints to interact with various resources such as states, cities, users, places, reviews, and amenities.
+This repository was originally forked from this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2). It was built upon to provide endpoints to interact with various resources such as states, cities, users, places, reviews, and amenities.
 
 💫
 ### Storage Enhancement: DBStorage and FileStorage
@@ -866,8 +866,38 @@ http://localhost:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 
 Input this command in your terminal
 ```bash
-
+curl -X GET http://0.0.0.0:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places
 ```
+
+This command is sending an HTTP **GET** request to the specified endpoint http://0.0.0.0:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places. It retrieves a list of places associated with the city having the ID "45903748-fa39-4cd0-8a0b-c62bfe471702" from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/6194c9fa-b10b-4856-97b7-f223741392f6)
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/0621e897-9ec0-47f7-91c7-bfca4d6c851c)
+
+In your terminal input this command:
+```
+curl -X GET http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
+```
+
+This command sends an HTTP GET request to the specified endpoint http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288. It retrieves information about a specific place identified by the UUID "0b96262f-2c72-464c-a182-8f58afde4288" from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/171ce22c-5e90-4aa6-9424-acbd8c41d6fc)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/45db6287-0344-4b07-92fd-98a0e6f7e1af)
+
+
 
 </ul> </li> </details>
 
