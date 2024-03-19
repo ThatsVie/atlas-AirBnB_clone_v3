@@ -13,6 +13,8 @@ app = Flask(__name__)
 app.register_blueprint(app_views)
 
 # Enable CORS
+# Specifies the URL paths for which CORS should be enabled
+# Enabled for all resources and allows requests from any origin
 CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
