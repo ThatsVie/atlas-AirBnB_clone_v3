@@ -75,17 +75,39 @@ class DBStorage:
 
     def get(self, cls, id):
         """
-        Returns the object based on the class and its ID, or None if not found
+        Retrieves an object from storage based on class and ID.
         """
-        if cls in classes.values():
-            for obj in self.all(cls).values():
-                if obj.id == id:
-                    return obj
+        # Check if both class and ID are provided
+        if cls and id:
+            # Check if the class is valid
+            if cls in classes.values():
+                # Retrieve all objects of the provided class
+                all_objects = self.all(cls)
+                # Iterate over each object to find the matching ID
+                for key, value in all_objects.items():
+                    # Check if the ID matches and return the object if found
+                    if key.split('.')[1] == id:
+                        return value
+            else:
+                # Return None if the provided class is not valid
+                return None
+        # Return None if either class or ID is missing
         return None
 
     def count(self, cls=None):
         """
-        Returns the number of objects in storage matching the given class.
-        If no class is passed,returns the count of all objects in storage.
+        Counts the number of objects matching the given class.
+        If no class is passed, returns the count of all objects in storage.
         """
-        return len(self.all(cls))
+        # If no class is provided, count all objects
+        if not cls:
+            all_objects = self.all()
+            return len(all_objects)
+        # Iterate over each class to find the matching class
+        for class_name, class_instance in classes.items():
+            if cls == class_name or cls == class_instance:
+                # Retrieve objects of the matched class and return their count
+                matched_objects = self.all(cls)
+                return len(matched_objects)
+        # Return None if the provided class is not valid
+        return None
