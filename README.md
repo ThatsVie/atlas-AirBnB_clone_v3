@@ -262,7 +262,7 @@ For each resource, the API supports GET, POST, PUT, and DELETE methods to perfor
 The API is configured to allow cross-origin requests from any origin (0.0.0.0) using the flask_cors module. This setup ensures that web clients can access the API data without encountering CORS-related issues.
 
 ### What the CRUD?!?!
-CRUD stands for Create, Read, Update, and Delete. It represents the four basic operations that can be performed on data in a persistent storage system, such as a database.
+**CRUD** stands for **Create**, **Read**, **Update**, and **Delete**. It represents the four basic operations that can be performed on data in a persistent storage system, such as a database.
 
 **Create (POST):** This operation involves creating new data entries or resources in the system. It typically involves sending data to the server to be stored.
 
@@ -572,8 +572,6 @@ In your browser:
 http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/48a14aa5-6f1f-4e29-9e20-a4fb3c5483ea)
-
-
 
 
 ## Authors:
