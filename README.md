@@ -261,6 +261,27 @@ For each resource, the API supports GET, POST, PUT, and DELETE methods to perfor
 ### Cross-Origin Resource Sharing (CORS)
 The API is configured to allow cross-origin requests from any origin (0.0.0.0) using the flask_cors module. This setup ensures that web clients can access the API data without encountering CORS-related issues.
 
+### What the CRUD?!?!
+CRUD stands for Create, Read, Update, and Delete. It represents the four basic operations that can be performed on data in a persistent storage system, such as a database.
+
+**Create (POST):** This operation involves creating new data entries or resources in the system. It typically involves sending data to the server to be stored.
+
+**Read (GET):** This operation involves retrieving existing data or resources from the system. It retrieves information without altering the data itself.
+
+**Update (PUT or PATCH):** This operation involves modifying existing data or resources in the system. PUT is often used to completely replace a resource, while PATCH is used to make partial updates.
+
+**Delete (DELETE):** This operation involves removing existing data or resources from the system.
+
+**GET**, **POST**, **PUT**, and **DELETE** are **HTTP** methods used to perform these **CRUD** operations over the network:
+
+**GET:** Retrieves data from the server. It is typically used for the Read operation in **CRUD**.
+
+**POST:** Sends data to the server to create a new resource. It is used for the Create operation in **CRUD**.
+
+**PUT:** Sends data to the server to update or replace an existing resource. It is used for the Update operation in **CRUD**.
+
+**DELETE:** Sends a request to the server to delete an existing resource. It is used for the Delete operation in **CRUD**.
+
 ### Installation
 
 **Clone the repository:**
@@ -277,7 +298,7 @@ pip3 install flask_cors
 ```
 
 ### Usage
-#### Retrieving Objects (get Method) and Counting Objects (count Method)
+### Retrieving Objects (get Method) and Counting Objects (count Method)
 Input this command:
 
 ```bash
@@ -306,7 +327,7 @@ This command executes the Python script named test_get_count.py in the current d
 
 ![Screenshot 2024-03-18 155722](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/33f6ebc4-a9d3-434b-8c56-ad31ad713e4a)
 
-#### Starting the API
+### Starting the API
 
 Input this command:
 ```bash
@@ -332,8 +353,8 @@ This command sends a GET request to the URL http://0.0.0.0:5000/api/v1/status wi
 
 ![Screenshot 2024-03-18 161236](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7b3b8c22-476d-440e-a178-22fb2a432692)
 
-#### Getting Stats
-**Note: For this to work the API needs to be running from the previous instance.**
+### Getting Stats
+**Note: For this to work the API needs to be running.**
 
 In your terminal input this command:
 ```bash
@@ -350,8 +371,8 @@ http://localhost:5000/api/v1/stats
 ```
 ![Screenshot 2024-03-18 164607](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/3b0cc174-5da5-4c4f-9698-5fe0acdb98e8)
 
-###  404 errors in a Flask API
-**Note: Ensure the API is running from the previous instances**
+### 404 errors
+**Note: Ensure the API is running**
 
 This task ensures that when clients access invalid endpoints in the API, they receive a clear and standardized JSON response indicating that the requested resource was not found.
 
@@ -377,7 +398,7 @@ http://localhost:5000/api/v1/nop
 ```
 ![Screenshot 2024-03-18 170706](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/79c60134-4dd9-42dd-878a-3a15a49012d5)
 
-#### View State Objects
+### State CRUD
 **Ensure the API server is still running**
 Input this command in your terminal
 ```bash
@@ -437,17 +458,120 @@ http://localhost:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
 
 ![Screenshot 2024-03-18 173453](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/e51ff67a-b131-478c-9270-df9a8ef4c4a2)
 
-Mississippi is so cool now!
+Mississippi is so cool now!( And always, obvs!)
 
-Next, in your terminal input this command:
+**Important Note about DELETE:
+Currently, although the DELETE function for State exists, it cannot be used due to a constraint violation related to the state_id column in the cities table. This constraint prevents the deletion of State objects if associated City objects still reference them. As a result, attempting to use the DELETE function for State triggers an error.**
+
+### Cities CRUD
+**Ensure the API server is still running**
+Input this command in your terminal
 ```bash
-(upto DELETE)
+curl -X GET http://0.0.0.0:5000/api/v1/states/not_an_id/cities/
+```
+The command curl -X GET http://0.0.0.0:5000/api/v1/states/not_an_id/cities/ sends a GET request to the specified URL, which is the endpoint for retrieving the list of cities associated with a particular state. However, in this case, the not_an_id part in the URL represents that the provided state_id is not a valid ID for any state object in the system. Therefore, the request will lresult in a 404 error indicating that the state with the provided ID was not found.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c5d9fb34-6cf4-46b2-82d7-f5c521964363)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/states/not_an_id/cities/
+```
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/4752f391-a60a-4989-91b3-2f912010d86e)
+
+Next, input this command in your terminal
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
+```
+The command curl -X GET http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities sends a GET request to the specified URL, which is the endpoint for retrieving the list of cities associated with the state identified by the UUID 2b9a4627-8a9e-4f32-a752-9a84fa7f4efd. This command fetches all cities that belong to the state with the provided ID.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/0a3203d7-c312-4745-9126-4af9366492ba)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
+```
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/4ece7f3f-2405-42cf-8873-3bb55d40eb3a)
+
+Next, input this command in your terminal:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683
+```
+The command curl -X GET http://0.0.0.0:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683 sends a GET request to the specified URL, which is the endpoint for retrieving information about a specific city. The UUID 1da255c0-f023-4779-8134-2b1b40f87683 in the URL identifies the city whose information is being requested.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/907c843d-d311-4539-abe5-eeda86eeba58)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683
 ```
 
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/fec5632a-c160-4b12-bc71-13de8082679f)
+
+Next, input this command in your terminal:
+```
+curl -X POST http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities -H "Content-Type: application/json" -d '{"name": "Alexandria"}' -vvv
+```
+This command CREATES city named "Alexandria" associated with the state identified by the UUID 2b9a4627-8a9e-4f32-a752-9a84fa7f4efd.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/38858ba6-5d7c-4f71-b737-1a16f8caa78e)
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/edb08564-223b-4e68-a8c2-310d45442d77)
+
+Input this command in your terminal:
+```bash
+curl -X PUT http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e -H "Content-Type: application/json" -d '{"name": "Bossier City"}'
+```
+The command curl -X PUT http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e -H "Content-Type: application/json" -d '{"name": "Bossier City"}' sends an HTTP PUT request to update a City object with the ID 8b871e03-8103-40b0-b609-ad776960468e. It specifies that the data being sent is in JSON format and includes the new name "Bossier City" for the city being updated.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/9ed96d68-7dea-412d-8102-dcd5b26c0f9c)
 
 
+Input this command in your terminal:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
+```
+The command curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e sends an HTTP GET request to retrieve information about the City object with the ID 8b871e03-8103-40b0-b609-ad776960468e from the specified API endpoint.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/04bb0e93-cc96-4839-bb38-47bade7b3b7c)
+
+The response confirms that the City object's information has been updated, showing the new name "Bossier City" along with other details such as creation and update timestamps.
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
+```
+
+![Screenshot 2024-03-18 194927](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/dba75d0e-0a6d-4b32-b97c-b13b0be89086)
 
 
+Input this command in your terminal:
+```bash
+curl -X DELETE http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
+```
+This command sends an HTTP DELETE request to the specified endpoint http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e, aiming to delete the City object with the ID 8b871e03-8103-40b0-b609-ad776960468e. It requests the server to remove the City resource associated with the provided ID. If successful, the server should respond with an appropriate confirmation or success message, indicating that the deletion was executed.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/b8cf1b58-4363-436d-b4d8-bfa9483b32dd)
+
+Input this command in your terminal:
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
+```
+This command is used to verify whether the City with the ID 8b871e03-8103-40b0-b609-ad776960468e has been deleted. It sends an HTTP GET request to the specified endpoint http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e to retrieve information about the City object. If the City has been successfully deleted, the server's response should indicate that the resource is not found.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/b81958c1-4ab6-40a9-b8a4-e01b39a10856)
+
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
+```
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/48a14aa5-6f1f-4e29-9e20-a4fb3c5483ea)
 
 
 
