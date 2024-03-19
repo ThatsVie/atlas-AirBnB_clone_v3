@@ -89,7 +89,7 @@ def create_new_review(place_id):
                  strict_slashes=False)
 def update_review(review_id):
     """
-    Updates the attributes of a Rebiew based on its ID
+    Updates the attributes of a Review based on its ID
     """
     review = storage.get(Review, review_id)
     if review is None:
