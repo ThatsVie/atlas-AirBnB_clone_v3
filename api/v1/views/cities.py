@@ -89,6 +89,7 @@ def update_city(city_id):
         abort(400, 'Not a JSON')
 
     for key, value in city_data.items():
+        #  specified 'don't touch' keys - set to ignore
         if key not in ['id', 'state_id', 'created_at', 'updated_at']:
             setattr(city, key, value)
     storage.save()
