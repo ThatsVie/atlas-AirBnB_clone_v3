@@ -63,6 +63,7 @@ def delete_state_by_id(state_id):
         abort(404)
     storage.delete(state)
     storage.save()
+    #  Converts empty dict into JSON response, returns 'OK' status code
     return jsonify({}), 200
 
 
@@ -76,11 +77,15 @@ def create_new_state():
         If request does not contain JSON data or is missing 'name' attribute,
         returns a 400 error.
     """
+    #  With addition of silent=True, if request does not contain
+    #  valid data, it will return 'None' instead of kicking error
     data = request.get_json(silent=True)
     if not data:
         abort(400, "Not a JSON")
     if "name" not in data:
         abort(400, "Missing name")
+    #  Create new State obj and passes key/value pairs from 'data' dict
+    #  into the State constructor
     new_state = State(**data)
     storage.new(new_state)
     storage.save()
@@ -107,7 +112,9 @@ def update_state(state_id):
     if not data:
         abort(400, "Not a JSON")
     for key, value in data.items():
+        #  Avoids directly modifying specific attributes
         if key not in ["id", "created_at", "updated_at"]:
+            #  Sets attributes on new State based on user input
             setattr(state, key, value)
     storage.save()
     return jsonify(state.to_dict()), 200
