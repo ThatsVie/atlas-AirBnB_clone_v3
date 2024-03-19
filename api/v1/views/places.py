@@ -57,6 +57,8 @@ def create_new_place(city_id):
     """
     Creates a new Place object associated with a City
     """
+    #  Retrieve proper City object of which new Place object
+    #  will be associated
     city = storage.get(City, city_id)
     if city is None:
         abort(404)
@@ -68,6 +70,7 @@ def create_new_place(city_id):
     required_attributes = ['user_id', 'name']
     for attribute in required_attributes:
         if attribute not in data:
+            #  If user_id or name missing from JSON data, will return error
             abort(400, f'Missing {attribute}')
 
     user_id = data['user_id']
