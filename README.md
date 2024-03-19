@@ -229,10 +229,10 @@ To view a README file for the Atlas AirBnb Clone `web_flask` folder, please visi
 
 This repository was originally forked from this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2). It was built upon to provide endpoints to interact with various resources such as states, cities, users, places, reviews, and amenities.
 
-💫
+💫💫💫
 ### Storage Enhancement: DBStorage and FileStorage
 
-The DBStorage and FileStorage modules have been updated in the storage_get_count branch to include two new methods:
+The DBStorage and FileStorage modules have been updated from the storage_get_count branch to include two new methods:
 
 **get(cls, id):** Retrieves an object based on the class and its ID, or returns None if not found.
 
@@ -240,7 +240,7 @@ The DBStorage and FileStorage modules have been updated in the storage_get_count
 
 New tests have been added to ensure the functionality of these methods.
 
-💫
+💫💫💫
 ### Endpoints
 
 **/states:** Retrieves a list of all state objects.
@@ -265,12 +265,12 @@ New tests have been added to ensure the functionality of these methods.
 
 For each resource, the API supports GET, POST, PUT, and DELETE methods to perform CRUD operations.
 
-💫
+💫💫💫
 ### Cross-Origin Resource Sharing (CORS)
 The API is configured to allow cross-origin requests from any origin (0.0.0.0) using the flask_cors module. This setup ensures that web clients can access the API data without encountering CORS-related issues.
 
-💫
-### What the CRUD?!?!
+💫💫💫
+### CRUD
 **CRUD** stands for **Create**, **Read**, **Update**, and **Delete**. It represents the four basic operations that can be performed on data in a persistent storage system, such as a database.
 
 **Create (POST):** This operation involves creating new data entries or resources in the system. It typically involves sending data to the server to be stored.
@@ -291,8 +291,19 @@ The API is configured to allow cross-origin requests from any origin (0.0.0.0) u
 
 **DELETE:** Sends a request to the server to delete an existing resource. It is used for the Delete operation in **CRUD**.
 
-💫
+💫💫💫
 ### Installation
+Before running the application, ensure you have the following installed:
+
+Python 3.x
+
+MySQL
+
+SQLAlchemy
+
+MySQLDB (Python MySQL client library)
+
+Flask
 
 **Clone the repository:**
 ```bash
@@ -306,7 +317,7 @@ cd atlas-AirBnB_clone_v3
 ```bash
 pip3 install flask_cors
 ```
-💫
+💫💫💫
 ### Usage
 
 <details>
@@ -329,6 +340,7 @@ Input this command:
 ```bash
 HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./test_get_count.py
 ```
+
 This command sets environment variables for MySQL connection parameters (HBNB_MYSQL_USER, HBNB_MYSQL_PWD, HBNB_MYSQL_HOST, HBNB_MYSQL_DB) and the storage type (HBNB_TYPE_STORAGE). Then, it executes the Python script test_get_count.py.
 
 ![Screenshot 2024-03-18 155447](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/870992bd-3496-43d3-a900-a354c6b6d222)
@@ -353,25 +365,31 @@ This command executes the Python script named test_get_count.py in the current d
   <ul></li>
     
 Input this command:
+
 ```bash
 HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
 ```
+
 This command initializes environment variables for MySQL configuration, storage type, API host, and port, then runs the API server using Python 3.
 
 ![Screenshot 2024-03-18 160252](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/e1bd81a7-04be-434a-9d5a-548266ae664a)
 
-In another terminal input this command:
+In another terminal window input this command:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/status
 ```
+
 This command sends a **GET** request to the specified URL (http://0.0.0.0:5000/api/v1/status) to retrieve the status of the API.
 
 ![Screenshot 2024-03-18 160933](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7243b816-3017-42cc-beb8-2ea01fb825bc)
 
 Next, input this command:
+
 ```bash
 curl -X GET -s http://0.0.0.0:5000/api/v1/status -vvv 2>&1 | grep Content-Type
 ```
+
 This command sends a **GET** request to the URL http://0.0.0.0:5000/api/v1/status with verbose output enabled (-vvv) while suppressing the progress meter (-s). It then redirects the standard error stream (2>&1) to the standard output stream. Finally, it filters the output to display lines containing "Content-Type" using the grep command.
 
 ![Screenshot 2024-03-18 161236](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7b3b8c22-476d-440e-a178-22fb2a432692)
@@ -387,18 +405,22 @@ This command sends a **GET** request to the URL http://0.0.0.0:5000/api/v1/statu
 **Note: For this to work the API needs to be running.**
 
 In your terminal input this command:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/stats
 ```
+
 This command sends a **GET** request to the specified URL http://0.0.0.0:5000/api/v1/stats. It is querying an API endpoint to retrieve statistics about the number of each type of object. The response will contain a JSON object with the counts of various object types such as amenities, cities, places, reviews, states, and users.
 
 ![Screenshot 2024-03-18 164441](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/92765fc0-f35a-4d4d-8f00-593b96591e94)
 
 
 Now, in your browser:
+
 ```bash
 http://localhost:5000/api/v1/stats
 ```
+
 ![Screenshot 2024-03-18 164607](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/3b0cc174-5da5-4c4f-9698-5fe0acdb98e8)
 
 </ul> </li> </details>
@@ -412,7 +434,8 @@ http://localhost:5000/api/v1/stats
 
 This task ensures that when clients access invalid endpoints in the API, they receive a clear and standardized JSON response indicating that the requested resource was not found.
 
-In your terminal input this command
+In your terminal input this command:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/nop
 ```
@@ -420,18 +443,22 @@ curl -X GET http://0.0.0.0:5000/api/v1/nop
 This command sends a **GET** request to http://0.0.0.0:5000/api/v1/nop, attempting to retrieve data from the specified URL.
 ![Screenshot 2024-03-18 170823](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/871248f0-ddf9-43ee-8fa7-7ca59ba7031a)
 
-Then, input this command
+Then, input this command:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/nop -vvv
 ```
+
 This command sends a verbose GET request to http://0.0.0.0:5000/api/v1/nop, providing detailed output about the request and response communication.
 
 ![Screenshot 2024-03-18 170844](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c200ec65-5028-4353-a23c-7b42f84e3279)
 
 Now, in your browser:
+
 ```bash
 http://localhost:5000/api/v1/nop
 ```
+
 ![Screenshot 2024-03-18 170706](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/79c60134-4dd9-42dd-878a-3a15a49012d5)
 
 </ul> </li> </details>
@@ -443,7 +470,8 @@ http://localhost:5000/api/v1/nop
   <li>
 
 **Ensure the API server is still running**
-Input this command in your terminal
+Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/states/
 ```
@@ -453,7 +481,8 @@ This command retrieves a list of all State objects from the API.
 ![Screenshot 2024-03-18 171651](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7b028171-a828-481a-98dd-da5cb339b237)
 
 
-Now in your browser:
+Now, in your browser:
+
 ```bash
 http://localhost:5000/api/v1/states/
 ```
@@ -462,6 +491,7 @@ http://localhost:5000/api/v1/states/
 
 
 Next, in the terminal input this command:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
 ```
@@ -471,30 +501,35 @@ This command retrieves a specific State object with the ID "bbee73a7-2f71-47e6-9
 ![Screenshot 2024-03-18 172110](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/943d4a6f-ae5d-4cde-ad56-ce721c49b460)
 
 In your browser:
+
 ```
 http://localhost:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
 ```
 
 ![Screenshot 2024-03-18 172323](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/fa91b52a-4d04-4765-a376-b9b035d637e2)
 
-Next, in your terminal input this command
+Next, in your terminal input this command:
 
 ```bash
 curl -X POST http://0.0.0.0:5000/api/v1/states/ -H "Content-Type: application/json" -d '{"name": "California"}' -vvv
 ```
+
 This command sends a **POST** request to create a new State object with the name "California" to the specified API endpoint. The request body is in JSON format, containing the name of the State. The -vvv flag is for verbose output, providing detailed information about the request and response.
 
 ![Screenshot 2024-03-18 172632](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/407f72c4-ac27-4dbc-9642-ee709521d547)
 
-Next, in your terminal input this command
+Next, in your terminal input this command:
+
 ```
 curl -X PUT http://0.0.0.0:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9 -H "Content-Type: application/json" -d '{"name": "Mississippi is so cool"}'
 ```
+
 This command is sending a **PUT** request to the endpoint http://0.0.0.0:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9 with the data {"name": "Mississippi is so cool"} in JSON format and specifying the header Content-Type: application/json. It's intended to update the name of the State object with the specified ID (bbee73a7-2f71-47e6-938a-2d9e932d4ff9) to "Mississippi is so cool".
 
 ![Screenshot 2024-03-18 173318](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c71682f4-0bc5-4b61-be06-7238e6c6c240)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/states/bbee73a7-2f71-47e6-938a-2d9e932d4ff9
 ```
@@ -516,43 +551,54 @@ Currently, although the DELETE function for State exists, there are constraints 
 
 **Ensure the API server is still running**
 
-Input this command in your terminal
+Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/states/not_an_id/cities/
 ```
+
 The command curl -X GET http://0.0.0.0:5000/api/v1/states/not_an_id/cities/ sends a **GET** request to the specified URL, which is the endpoint for retrieving the list of cities associated with a particular state. However, in this case, the not_an_id part in the URL represents that the provided state_id is not a valid ID for any state object in the system. Therefore, the request will lresult in a 404 error indicating that the state with the provided ID was not found.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c5d9fb34-6cf4-46b2-82d7-f5c521964363)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/states/not_an_id/cities/
 ```
+
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/4752f391-a60a-4989-91b3-2f912010d86e)
 
-Next, input this command in your terminal
+Next, input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
 ```
+
 The command curl -X GET http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities sends a **GET** request to the specified URL, which is the endpoint for retrieving the list of cities associated with the state identified by the UUID 2b9a4627-8a9e-4f32-a752-9a84fa7f4efd. This command fetches all cities that belong to the state with the provided ID.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/0a3203d7-c312-4745-9126-4af9366492ba)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
 ```
+
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/4ece7f3f-2405-42cf-8873-3bb55d40eb3a)
 
 Next, input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683
 ```
+
 The command curl -X GET http://0.0.0.0:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683 sends a **GET** request to the specified URL, which is the endpoint for retrieving information about a specific city. The UUID 1da255c0-f023-4779-8134-2b1b40f87683 in the URL identifies the city whose information is being requested.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/907c843d-d311-4539-abe5-eeda86eeba58)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683
 ```
@@ -560,14 +606,17 @@ http://localhost:5000/api/v1/cities/1da255c0-f023-4779-8134-2b1b40f87683
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/fec5632a-c160-4b12-bc71-13de8082679f)
 
 Next, input this command in your terminal:
+
 ```
 curl -X POST http://0.0.0.0:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities -H "Content-Type: application/json" -d '{"name": "Alexandria"}' -vvv
 ```
+
 This command CREATES city named "Alexandria" associated with the state identified by the UUID 2b9a4627-8a9e-4f32-a752-9a84fa7f4efd.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/38858ba6-5d7c-4f71-b737-1a16f8caa78e)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
 ```
@@ -575,18 +624,22 @@ http://localhost:5000/api/v1/states/2b9a4627-8a9e-4f32-a752-9a84fa7f4efd/cities
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/edb08564-223b-4e68-a8c2-310d45442d77)
 
 Input this command in your terminal:
+
 ```bash
 curl -X PUT http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e -H "Content-Type: application/json" -d '{"name": "Bossier City"}'
 ```
+
 The command curl -X PUT http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e -H "Content-Type: application/json" -d '{"name": "Bossier City"}' sends an HTTP **PUT** request to update a City object with the ID 8b871e03-8103-40b0-b609-ad776960468e. It specifies that the data being sent is in JSON format and includes the new name "Bossier City" for the city being updated.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/9ed96d68-7dea-412d-8102-dcd5b26c0f9c)
 
 
 Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
+
 The command curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e sends an HTTP GET request to retrieve information about the City object with the ID 8b871e03-8103-40b0-b609-ad776960468e from the specified API endpoint.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/04bb0e93-cc96-4839-bb38-47bade7b3b7c)
@@ -594,6 +647,7 @@ The command curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b60
 The response confirms that the City object's information has been updated, showing the new name "Bossier City" along with other details such as creation and update timestamps.
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
@@ -602,26 +656,32 @@ http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 
 
 Input this command in your terminal:
+
 ```bash
 curl -X DELETE http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
+
 This command sends an HTTP **DELETE** request to the specified endpoint http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e, aiming to delete the City object with the ID 8b871e03-8103-40b0-b609-ad776960468e. It requests the server to remove the City resource associated with the provided ID. If successful, the server should respond with an appropriate confirmation or success message, indicating that the deletion was executed.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/b8cf1b58-4363-436d-b4d8-bfa9483b32dd)
 
 Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
+
 This command is used to verify whether the City with the ID 8b871e03-8103-40b0-b609-ad776960468e has been deleted. It sends an HTTP GET request to the specified endpoint http://0.0.0.0:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e to retrieve information about the City object. If the City has been successfully deleted, the server's response should indicate that the resource is not found.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/b81958c1-4ab6-40a9-b8a4-e01b39a10856)
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
+
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/48a14aa5-6f1f-4e29-9e20-a4fb3c5483ea)
 
 </ul> </li> </details>
@@ -634,15 +694,18 @@ http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 
 **Ensure the API server is still running**
 
-Input this command in your terminal
+Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/amenities/
 ```
+
 The command curl -X **GET** http://0.0.0.0:5000/api/v1/amenities/ fetches a list of all amenities from the specified API endpoint.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/36928225-9cad-4670-81ce-8d170125235c)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/amenities/
 ```
@@ -650,6 +713,7 @@ http://localhost:5000/api/v1/amenities/
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/b7706689-a244-4d25-831a-707e7d77443d)
 
 Next, input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/amenities/017ec502-e84a-4a0f-92d6-d97e27bb6bdf
 ```
@@ -659,6 +723,7 @@ The command curl -X **GET** http://0.0.0.0:5000/api/v1/amenities/017ec502-e84a-4
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/3eb73fa9-a8a0-4f17-97b1-f67d337df377)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/amenities/017ec502-e84a-4a0f-92d6-d97e27bb6bdf
 ```
@@ -676,6 +741,7 @@ This command is making a **POST** request to the endpoint http://0.0.0.0:5000/ap
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/9ed081ac-aa46-4170-a1b3-c5f626974e04)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 ```
@@ -683,6 +749,7 @@ http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/ff09942a-f74d-4d4a-8b92-3e7b984603ca)
 
 Next, input this command in your terminal:
+
 ```bash
  curl -X PUT http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a -H "Content-Type: application/json" -d '{"name": "Pugs are Love"}'
 ```
@@ -692,10 +759,10 @@ This command is sending a **PUT** request to the endpoint http://0.0.0.0:5000/ap
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/8efb23bb-fecf-4aea-9663-475e17ebd0d8)
 
 Next, input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 ```
-
 
 This command is sending a **GET** request to the endpoint http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a. It is requesting information about the amenity with the ID a4efd896-0685-47d3-ab8b-daa06195951a from the API.
 
@@ -703,6 +770,7 @@ This command is sending a **GET** request to the endpoint http://0.0.0.0:5000/ap
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 ```
@@ -711,6 +779,7 @@ http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 
 
 Next, input this command in your terminal:
+
 ```bash
 curl -X DELETE http://0.0.0.0:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 ```
@@ -730,14 +799,15 @@ This command is being used to verify the deletion of an amenity. It sends a GET 
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 ```
+
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/49498c76-ca8f-4ac9-9efb-3357f0f03cc6)
 
 
 </ul> </li> </details>
-
 
 
 <details>
@@ -748,7 +818,8 @@ http://localhost:5000/api/v1/amenities/a4efd896-0685-47d3-ab8b-daa06195951a
 
 **Ensure the API server is still running**
 
-Input this command in your terminal
+Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/users/
 ```
@@ -759,12 +830,15 @@ This command is sending a **GET** request to the endpoint http://0.0.0.0:5000/ap
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/users/
 ```
+
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/a0973b6b-1ad7-4dca-b3c2-b9960c94a7db)
 
 Next, input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/users/00a11245-12fa-436e-9ccc-967417f8c30a
 ```
@@ -774,6 +848,7 @@ This command is sending a **GET** request to the endpoint http://0.0.0.0:5000/ap
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/626db054-cbdb-45c5-85ff-c513a2531668)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/users/00a11245-12fa-436e-9ccc-967417f8c30a
 ```
@@ -781,6 +856,7 @@ http://localhost:5000/api/v1/users/00a11245-12fa-436e-9ccc-967417f8c30a
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/1116d966-2090-4d35-924e-d185b4bdcb14)
 
 Next, in your terminal input this command:
+
 ```bash
 curl -X POST http://0.0.0.0:5000/api/v1/users/ -H "Content-Type: application/json" -d '{"first_name": "Puggy", "last_name": "Wuggy", "email": "puggy@pugsruletheworld.com", "password": "pugsnotdrugs"}' -vvv
 ```
@@ -791,6 +867,7 @@ This command is making a **POST** request to http://0.0.0.0:5000/api/v1/users/ t
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 ```
@@ -799,6 +876,7 @@ http://localhost:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 
 
 Next, input this command in the terminal:
+
 ```bash
 curl -X PUT http://0.0.0.0:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103 -H "Content-Type: application/json" -d '{"first_name": "Puggie", "last_name": "Wuggie", "email": "puggie@pugsruletheworld.com", "password": "puggiessnotdrugs"}' -vvv
 ```
@@ -808,6 +886,7 @@ This command is sending a **PUT** request to update the user data associated wit
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/77575556-4c8a-4c71-975b-02499ec158d5)
 
 Next, input this command in the terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 ```
@@ -818,6 +897,7 @@ This command is sending an HTTP **GET** request to the specified endpoint http:/
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 ```
@@ -825,7 +905,8 @@ http://localhost:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 
 You can see on the terminal and browser that the user's first name, last name, and password have been updated.
 
-Next, input this command in the terminal
+Next, input this command in the terminal:
+
 ```bash
 curl -X DELETE http://0.0.0.0:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 ```
@@ -833,6 +914,7 @@ curl -X DELETE http://0.0.0.0:5000/api/v1/users/250ef043-9742-4308-abc1-02726675
 This command is sending an HTTP DELETE request to the specified endpoint http://0.0.0.0:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103, aiming to delete the user with the ID "250ef043-9742-4308-abc1-02726675b103" from the API.
 
 Then, input this command:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 ```
@@ -864,7 +946,8 @@ http://localhost:5000/api/v1/users/250ef043-9742-4308-abc1-02726675b103
 
 **Ensure the API server is still running**
 
-Input this command in your terminal
+Input this command in your terminal:
+
 ```bash
 curl -X GET http://0.0.0.0:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places
 ```
@@ -882,6 +965,7 @@ http://localhost:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/0621e897-9ec0-47f7-91c7-bfca4d6c851c)
 
 In your terminal input this command:
+
 ```
 curl -X GET http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
 ```
@@ -891,6 +975,7 @@ This command sends an HTTP **GET** request to the specified endpoint http://0.0.
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/171ce22c-5e90-4aa6-9424-acbd8c41d6fc)
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
 ```
@@ -909,6 +994,7 @@ This command sends an HTTP **POST** request to the specified endpoint http://0.0
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/6fe9e5c1-15da-45c2-ad6d-933dffc33f76)
 
 In your browser: 
+
 ```bash
 http://localhost:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places
 ```
@@ -928,9 +1014,11 @@ This command sends an HTTP **PUT** request to the specified endpoint http://0.0.
 
 
 In your browser:
+
 ```bash
 http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
 ```
+
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/5fee315e-34a9-4179-8936-5dc6cc14883c)
 
 
@@ -948,10 +1036,127 @@ In this case, a constraint is imposed on the place_id column in the reviews tabl
 
 **Ensure the API server is still running**
 
-Input this command in your terminal
-```bash
+Input this command in your terminal:
 
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288/reviews
 ```
+
+This command sends an HTTP **GET** request to the specified endpoint http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288/reviews. It retrieves a list of reviews associated with the place identified by the UUID 0b96262f-2c72-464c-a182-8f58afde4288 from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/79db45e7-032a-40ae-a556-91d6e5d36e78)
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288/reviews
+```
+
+![Screenshot 2024-03-19 153123](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c7a823e4-8a0b-4a34-b31e-724148f80ff8)
+
+Next, input this command in your terminal:
+
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47
+```
+
+This command sends an HTTP GET request to the specified endpoint http://0.0.0.0:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47. It retrieves information about a specific review identified by the UUID 06af6da4-137d-4a3b-bc3e-0ae33d687b47 from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/a4154b0b-8f1c-4a10-b7d4-5cb55a945117)
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47
+```
+
+![Screenshot 2024-03-19 154009](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/4f7ef6e6-e900-4c36-83ab-1b70a42262fd)
+
+In your terminal input this command:
+
+```bash
+curl -X DELETE http://0.0.0.0:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47
+```
+
+This command sends an HTTP DELETE request to the specified endpoint http://0.0.0.0:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47. It deletes the review associated with the UUID 06af6da4-137d-4a3b-bc3e-0ae33d687b47 from the API.
+
+Input this command in your terminal:
+
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47
+```
+
+This command sends an HTTP GET request to the specified endpoint http://0.0.0.0:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47 to verify the deletion of the review associated with the UUID 06af6da4-137d-4a3b-bc3e-0ae33d687b47 from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/439cc436-3dd6-4c61-81b1-52e718a4747f)
+
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/reviews/06af6da4-137d-4a3b-bc3e-0ae33d687b47
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/1a3f5594-27ce-4062-b3ed-277b04aceb47)
+
+
+Next, in your terminal input this command:
+
+```bash
+ curl -X POST http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288/reviews -H "Content-Type: application/json" -d '{"user_id": "00a11245-12fa-436e-9ccc-967417f8c30a", "text": "Not enough pugs!"}'
+```
+
+This command is sending an HTTP **POST** request to create a new review for the place with the ID 0b96262f-2c72-464c-a182-8f58afde4288. The request includes JSON data in the request body specifying the user_id as "00a11245-12fa-436e-9ccc-967417f8c30a" and the text of the review as "Not enough pugs!". The -H "Content-Type: application/json" header indicates that the content being sent is in JSON format.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/d743e10b-0aba-4f6c-b228-338cec825927)
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288/reviews
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/1ca573d3-a17e-4501-91d1-de83b2c1394b)
+
+Next, input this command in your terminal:
+
+```bash
+curl -X GET http://0.0.0.0:5000/api/v1/reviews/38d44b1a-6872-4c55-8332-38f88cbadc41
+```
+
+This command is sending an HTTP **GET** request to the specified endpoint http://0.0.0.0:5000/api/v1/reviews/38d44b1a-6872-4c55-8332-38f88cbadc41. It is retrieving information about a specific review identified by the UUID 38d44b1a-6872-4c55-8332-38f88cbadc41 from the API.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/c923d32b-114c-45cc-b3b4-c29697930d13)
+
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/reviews/38d44b1a-6872-4c55-8332-38f88cbadc41
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/a464e169-036a-4a86-9f8b-99ed6e73b646)
+
+
+Next, input this command in your terminal:
+
+```bash
+curl -X PUT http://0.0.0.0:5000/api/v1/reviews/38d44b1a-6872-4c55-8332-38f88cbadc41 \ 
+-H "Content-Type: application/json" \
+-d '{"text": "We were promised pugs. No pugs in sight"}'
+```
+
+This command sends a **PUT** request to update the review with the ID 38d44b1a-6872-4c55-8332-38f88cbadc41 by changing its text to "We were promised pugs. No pugs in sight". It specifies the request's content type as JSON and includes the updated review text in the request body.
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7c431f32-0da4-41bd-8b79-672425bf38f1)
+
+In your browser:
+
+```bash
+http://localhost:5000/api/v1/reviews/38d44b1a-6872-4c55-8332-38f88cbadc41
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/f002d1a0-69ab-4626-9a3d-b0e5b195c2a8)
 
 
 </ul> </li> </details>
