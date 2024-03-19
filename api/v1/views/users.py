@@ -85,4 +85,5 @@ def update_user(user_id):
         if key not in ['id', 'email', 'created_at', 'updated_at']:
             setattr(user, key, value)
     storage.save()
+    #  Returns JSON response with the details of the updated user object
     return jsonify(user.to_dict()), 200
