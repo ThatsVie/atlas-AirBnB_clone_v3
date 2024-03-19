@@ -886,7 +886,7 @@ In your terminal input this command:
 curl -X GET http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
 ```
 
-This command sends an HTTP GET request to the specified endpoint http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288. It retrieves information about a specific place identified by the UUID "0b96262f-2c72-464c-a182-8f58afde4288" from the API.
+This command sends an HTTP **GET** request to the specified endpoint http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288. It retrieves information about a specific place identified by the UUID "0b96262f-2c72-464c-a182-8f58afde4288" from the API.
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/171ce22c-5e90-4aa6-9424-acbd8c41d6fc)
 
@@ -897,7 +897,45 @@ http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
 
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/45db6287-0344-4b07-92fd-98a0e6f7e1af)
 
+In your terminal input this command:
 
+```bash
+curl -X POST http://0.0.0.0:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places -H "Content-Type: application/json" -d '{"user_id": "b6160096-c503-4909-a674-7bfbddc8cc45", "name": "Puglandia"}'
+```
+
+This command sends an HTTP **POST** request to the specified endpoint http://0.0.0.0:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places. It is creating a new Place object associated with the City identified by the UUID 45903748-fa39-4cd0-8a0b-c62bfe471702. The request body contains JSON data specifying the user_id and name attributes of the new Place.
+
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/6fe9e5c1-15da-45c2-ad6d-933dffc33f76)
+
+In your browser: 
+```bash
+http://localhost:5000/api/v1/cities/45903748-fa39-4cd0-8a0b-c62bfe471702/places
+```
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/d3242b51-8a71-41a6-b4cd-bffb7a26a555)
+
+
+In your terminal input this command:
+
+```bash
+ curl -X PUT http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288 -H "Content-Type: application/json" -d '{"name": "Pug Palace"}'
+```
+
+This command sends an HTTP **PUT** request to the specified endpoint http://0.0.0.0:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288. It is updating the attributes of the Place object identified by the UUID 0b96262f-2c72-464c-a182-8f58afde4288. The request body contains JSON data specifying the updated value for the name attribute of the Place, which is being changed to "Pug Palace".
+
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/1cab5339-bdc1-4a7f-9087-301301e9a004)
+
+
+In your browser:
+```bash
+http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
+```
+![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/5fee315e-34a9-4179-8936-5dc6cc14883c)
+
+
+**Important Note about DELETE: Similar to the constraints observed with State and City associations, where the state_id column in the cities table prevents State deletion if associated Cities exist, constraints exist for Place and Review relationships.
+In this case, a constraint is imposed on the place_id column in the reviews table, disallowing Place deletion if associated Reviews are present. Consequently, attempting to delete a Place with associated Reviews will result in errors. To resolve this, all associated Reviews must be deleted before a Place can be removed.**
 
 </ul> </li> </details>
 
@@ -907,7 +945,6 @@ http://localhost:5000/api/v1/places/0b96262f-2c72-464c-a182-8f58afde4288
 🌻🌻🌻Reviews CRUD   </summary>
 <ul>
   <li>
-
 
 **Ensure the API server is still running**
 
