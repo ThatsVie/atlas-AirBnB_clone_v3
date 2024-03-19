@@ -26,6 +26,7 @@ def api_stats():
     Returns:
         JSON response containing statistics for each model class
     """
+    #  Builds dictionary that maps model names to corresponding classes
     model_classes = {
         "amenities": "Amenity",
         "cities": "City",
@@ -34,6 +35,7 @@ def api_stats():
         "states": "State",
         "users": "User"
     }
-
+    #  Iterate over each item and adds them to an object count
+    #  Count stored in 'stats' dictionary
     stats = {key: storage.count(value) for key, value in model_classes.items()}
     return jsonify(stats)
