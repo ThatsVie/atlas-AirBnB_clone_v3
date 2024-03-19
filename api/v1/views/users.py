@@ -46,6 +46,7 @@ def delete_user_by_id(user_id):
 
 
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
+#  When POST request received, this function will be executed
 def create_new_user():
     """
     Creates a new User object
