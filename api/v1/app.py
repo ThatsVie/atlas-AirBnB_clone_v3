@@ -21,6 +21,7 @@ def handle_not_found_error(error):
     """
     Handle 404 Not Found errors
     """
+    #  Ensures that 404 status code on error is JSON-formatted
     return jsonify({"error": "Not found"}), 404
 
 
