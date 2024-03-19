@@ -1,5 +1,6 @@
 # AirBnB Clone 
 
+💻
 ## The Console
 The console is the first segment of the AirBnB project at Holberton School that will collectively cover fundamental concepts of higher level programming. The goal of AirBnB project is to eventually deploy our server a simple copy of the AirBnB Website(HBnB). A command interpreter is created in this segment to manage objects for the AirBnB(HBnB) website.
 
@@ -208,22 +209,27 @@ EOF  all  create  destroy  help  quit  show  update
 
 To view a README file for the Atlas AirBnB Clone Console project, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone/blob/main/README.md).
 
-## Web Static
+
+💻
+ ## Web Static
 
 The `web_static` folder serves as a repository for static assets such as HTML, CSS, and images. It organizes the front-end resources used to create and style the web pages in the project. These assets are served to users directly by the web server without any processing, enhancing the performance and scalability of the web application.
 
 To view a README file for the Atlas AirBnb Clone `web_static` folder, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone/blob/main/web_static/README.md).
 
+💻
 ## Web Flask/ Web Framewok
 
 This project implements a web framework for an AirBnB clone using Flask, a lightweight WSGI web application framework. It includes various tasks that demonstrate the functionality of the web application, such as displaying different routes, rendering HTML templates, and interacting with a database.
 
 To view a README file for the Atlas AirBnb Clone `web_flask` folder, please visit [this link](https://github.com/ThatsVie/atlas-AirBnB_clone_v2/blob/master/web_flask/README.md).
 
+💻
 ## AirBnB Clone v3 API
 
 This repository was originally forked from this [codebase](https://github.com/alexaorrico/AirBnB_clone_v2) It was built upon to provide endpoints to interact with various resources such as states, cities, users, places, reviews, and amenities.
 
+💫
 ### Storage Enhancement: DBStorage and FileStorage
 
 The DBStorage and FileStorage modules have been updated in the storage_get_count branch to include two new methods:
@@ -234,6 +240,7 @@ The DBStorage and FileStorage modules have been updated in the storage_get_count
 
 New tests have been added to ensure the functionality of these methods.
 
+💫
 ### Endpoints
 
 **/states:** Retrieves a list of all state objects.
@@ -258,9 +265,11 @@ New tests have been added to ensure the functionality of these methods.
 
 For each resource, the API supports GET, POST, PUT, and DELETE methods to perform CRUD operations.
 
+💫
 ### Cross-Origin Resource Sharing (CORS)
 The API is configured to allow cross-origin requests from any origin (0.0.0.0) using the flask_cors module. This setup ensures that web clients can access the API data without encountering CORS-related issues.
 
+💫
 ### What the CRUD?!?!
 **CRUD** stands for **Create**, **Read**, **Update**, and **Delete**. It represents the four basic operations that can be performed on data in a persistent storage system, such as a database.
 
@@ -282,6 +291,7 @@ The API is configured to allow cross-origin requests from any origin (0.0.0.0) u
 
 **DELETE:** Sends a request to the server to delete an existing resource. It is used for the Delete operation in **CRUD**.
 
+💫
 ### Installation
 
 **Clone the repository:**
@@ -296,9 +306,15 @@ cd atlas-AirBnB_clone_v3
 ```bash
 pip3 install flask_cors
 ```
-
+💫
 ### Usage
-### Retrieving Objects (get Method) and Counting Objects (count Method)
+
+<details>
+<summary>
+🌻🌻🌻Retrieving Objects (get Method) and Counting Objects (count Method) </summary>
+<ul>
+  <li>
+    
 Input this command:
 
 ```bash
@@ -327,8 +343,15 @@ This command executes the Python script named test_get_count.py in the current d
 
 ![Screenshot 2024-03-18 155722](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/33f6ebc4-a9d3-434b-8c56-ad31ad713e4a)
 
-### Starting the API
+</ul> </li> </details>
 
+
+<details>
+<summary>
+🌻🌻🌻Starting the API
+</summary>
+  <ul></li>
+    
 Input this command:
 ```bash
 HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
@@ -353,7 +376,14 @@ This command sends a GET request to the URL http://0.0.0.0:5000/api/v1/status wi
 
 ![Screenshot 2024-03-18 161236](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/7b3b8c22-476d-440e-a178-22fb2a432692)
 
-### Getting Stats
+</ul> </li> </details>
+
+<details>
+<summary>
+🌻🌻🌻Getting Stats  </summary>
+<ul>
+  <li>
+    
 **Note: For this to work the API needs to be running.**
 
 In your terminal input this command:
@@ -371,7 +401,13 @@ http://localhost:5000/api/v1/stats
 ```
 ![Screenshot 2024-03-18 164607](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/3b0cc174-5da5-4c4f-9698-5fe0acdb98e8)
 
-### 404 errors
+</ul> </li> </details>
+
+<details>
+<summary>🌻🌻🌻404 errors  </summary>
+<ul>
+  <li>
+
 **Note: Ensure the API is running**
 
 This task ensures that when clients access invalid endpoints in the API, they receive a clear and standardized JSON response indicating that the requested resource was not found.
@@ -398,7 +434,14 @@ http://localhost:5000/api/v1/nop
 ```
 ![Screenshot 2024-03-18 170706](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/79c60134-4dd9-42dd-878a-3a15a49012d5)
 
-### State CRUD
+</ul> </li> </details>
+
+<details>
+<summary>
+🌻🌻🌻State CRUD   </summary>
+<ul>
+  <li>
+
 **Ensure the API server is still running**
 Input this command in your terminal
 ```bash
@@ -463,7 +506,14 @@ Mississippi is so cool now!( And always, obvs!)
 **Important Note about DELETE:
 Currently, although the DELETE function for State exists, it cannot be used due to a constraint violation related to the state_id column in the cities table. This constraint prevents the deletion of State objects if associated City objects still reference them. As a result, attempting to use the DELETE function for State triggers an error.**
 
-### Cities CRUD
+</ul> </li> </details>
+
+<details>
+<summary>
+🌻🌻🌻Cities CRUD   </summary>
+<ul>
+  <li>
+
 **Ensure the API server is still running**
 Input this command in your terminal
 ```bash
@@ -573,7 +623,53 @@ http://localhost:5000/api/v1/cities/8b871e03-8103-40b0-b609-ad776960468e
 ```
 ![image](https://github.com/ThatsVie/atlas-AirBnB_clone_v3/assets/143755961/48a14aa5-6f1f-4e29-9e20-a4fb3c5483ea)
 
+</ul> </li> </details>
 
+<details>
+<summary>
+🌻🌻🌻Amenities CRUD  </summary>
+<ul>
+  <li>
+
+
+</ul> </li> </details>
+
+
+
+<details>
+<summary>
+🌻🌻🌻User CRUD  </summary>
+<ul>
+  <li>
+
+
+</ul> </li> </details>
+
+
+
+
+<details>
+<summary>
+🌻🌻🌻Places CRUD  </summary>
+<ul>
+  <li>
+
+
+
+</ul> </li> </details>
+
+
+<details>
+<summary>
+🌻🌻🌻Reviews CRUD   </summary>
+<ul>
+  <li>
+
+
+
+</ul> </li> </details>
+
+💻
 ## Authors:
 Vie Paula - [Github](https://github.com/ThatsVie)
 
