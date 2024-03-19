@@ -19,6 +19,8 @@ def get_reviews_by_place(place_id):
     place = storage.get(Place, place_id)
     if place is None:
         abort(404)
+    #  Retrieve all Review objects associated with place_id
+    #  Creates list of dictionaries of each Review object
     reviews = [review.to_dict() for review in place.reviews]
     return jsonify(reviews)
 
