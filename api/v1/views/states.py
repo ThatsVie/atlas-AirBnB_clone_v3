@@ -17,6 +17,7 @@ def list_states():
     Returns:
         JSON representation of all State objects
     """
+    #  Create 'states' dict and places all State objects from state into dict
     states = [state.to_dict() for state in storage.all(State).values()]
     return jsonify(states)
 
@@ -33,9 +34,11 @@ def get_state_by_id(state_id):
         JSON representation of the retrieved State object.
         If no State with the given ID is found, returns a 404 error.
     """
+    #  Calls get() method and retrieves State obj with given ID
     state = storage.get(State, state_id)
     if not state:
         abort(404)
+    #  Convert state's attributes into dict format and returns as JSON response
     return jsonify(state.to_dict())
 
 
