@@ -78,6 +78,7 @@ def update_amenity(amenity_id):
     if amenity is None:
         abort(404)
     data = request.get_json(silent=True)
+    #  silent=True tells Flask not to raise an error if request is not JSON
     if not data:
         abort(400, 'Not a JSON')
     for key, value in data.items():
